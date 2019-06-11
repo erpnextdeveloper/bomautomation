@@ -19,11 +19,11 @@ def make_bom(name,selected_items):
 	try:
 		so_doc=frappe.get_doc("Sales Order",name)
 		if len(so_doc.items)>=1:
-			if len(so_doc.row_materials)>=1:				
+			if len(so_doc.custom_row_materials)>=1:				
 				for item in so_doc.items:
 					if item.name in selected_items:
 						row_materials=[]
-						for row in so_doc.row_materials:
+						for row in so_doc.custom_row_materials:
 							row_dict={}
 							row_dict["item_code"]=row.item_code
 							row_dict["item_name"]=row.item_name
